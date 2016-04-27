@@ -31,6 +31,18 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set scrolloff=5		" bypeb: keep context around the cursor
+set number		" bypeb: display line number
+set ignorecase		" bypeb: ignore case when searching. Disable if performant issues
+"set nowrapscan		" bypeb: stop search at the end of the file
+set clipboard=unnamedplus	" bypeb: use clipboard via "+ Ex: "+yy copy a line  "+p paste de clipboard content
+
+if &t_Co > 2 || has("gui_running") "bypeb
+	" Grey line numbers
+	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+	" Less intence selection highlight
+	highlight Search cterm=NONE ctermfg=Grey ctermbg=blue
+endif
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")

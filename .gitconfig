@@ -2,8 +2,8 @@
 	email = biongbenito@gmail.com
 	name = Pablo Benito
 [core]
-	#editor = vim
-	pager = less -Rc
+	editor = vim
+	#pager = less -Rc
 	autocrlf = input
 
 [merge]
@@ -29,9 +29,11 @@
 	tree = log --graph --pretty=oneline --abbrev-commit --decorate
 	g = grep -n
 	edit = "!vim `git ls-files -m` -p"
-
+	dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [push]
         default = current
 
 [color]
         ui = true
+[diff]
+	mnemonicprefix = true

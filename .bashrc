@@ -101,6 +101,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+complete -o default -o nospace -F _git g #bypeb: autocomplete for g the git alias
+
+# bypeb: Tell git diff to use mnemonic prefixes (index, work tree, commit, object) instead of the standard a and b notation:
+git config --global diff.mnemonicprefix true
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
