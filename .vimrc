@@ -1,4 +1,7 @@
-
+"
+" $VIMRUNTIME : 
+" from term; vim --cmd 'echo $VIMRUNTIME|q'
+" from vim;  echo $VIMRUNTIME
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -27,7 +30,7 @@ if has("vms")
 else
   set backup		" keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
+set history=50		" keep 50 lines of command line history and 50 searchs
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
@@ -36,6 +39,11 @@ set number		" bypeb: display line number
 set ignorecase		" bypeb: ignore case when searching. Disable if performant issues
 "set nowrapscan		" bypeb: stop search at the end of the file
 set clipboard=unnamedplus	" bypeb: use clipboard via "+ Ex: "+yy copy a line  "+p paste de clipboard content
+set whichwrap=b,s,<,>,[,]	" bypeb: wrap cursor at the start/end of line  with arrow keys in normal and insert mode, and with backspace and space.
+set list			" bypeb: set tab chars visible
+set listchars=tab:>-,trail:-	" bypeb: mark tabs with >---
+set iskeyword+=-		" bypeb: add the - char as part of words
+set cmdheight=2		" bypeb: set command line height
 
 if &t_Co > 2 || has("gui_running") "bypeb
 	" Grey line numbers
